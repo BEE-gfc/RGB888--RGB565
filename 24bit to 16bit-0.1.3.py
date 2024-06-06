@@ -10,48 +10,6 @@
 作者: Wei-RC
 """
 
-'''
-from PIL import Image
-
-pic_path = 'C:/Users/86176/Desktop/xt.jpg'
-file_path = "C:/Users/86176/Desktop/image.h"
-
-def read_image(pic_path):
-    img = Image.open(pic_path)
-    old_w, old_h = img.size
-    dim = (160, 128)   #目标尺寸
-    img.thumbnail(dim, Image.ANTIALIAS)
-
-    text =''
-    new_w = img.size[0]
-    new_h = img.size[1]
-
-    text += "#define IMAGE_WIDTH  %d\n" % new_w
-    text += "#define IMAGE_HEIGHT %d\n" % new_h
-    text += "uint16_t static const PROGMEM image[] = {\n"
-
-    for y in range(0, new_h):
-        for x in range(0, new_w):
-            rgb565 = ((img.getpixel((x, y))[0] & 0xf8) << 8) + ((img.getpixel((x, y))[1] & 0xfc) << 3) + (img.getpixel((x, y))[2] >> 3)
-
-            new_rgb565 = str(hex(rgb565))
-
-            if (x == new_w -1 and y == new_h -1):
-                text += "%s" % new_rgb565
-            elif (x == new_w -1):
-                text += "%s,\n" % new_rgb565
-            else:
-                text += "%s, " % new_rgb565
-
-    text += "\n};"
-
-    with open(file_path, "w") as f:
-        f.write(text)
-
-read_image(pic_path)
-'''
-
-#批量处理图片
 import os
 import glob
 from PIL import Image

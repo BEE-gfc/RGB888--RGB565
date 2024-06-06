@@ -1,9 +1,8 @@
 """
-此程序用于将24位颜色模式的图片转换为16位的图片(也就是RGB565模式),并将其读取出的像素数据写入头文件中。
-主要用于开发TFT屏,在上面显示任意经过处理的图片
-
-此项目创建于2024年6月4日23:01
-版本号为1.0.0
+This is a video that can convert an image with a 24-bit color mode to 16-bit, which is RGB565
+And the data it converts to is stored in an array
+I wrote this tool mainly for displaying some pictures on the TFT screen
+I created this project at 23:01 on June 4, 2024.
 """
 
 from PIL import Image

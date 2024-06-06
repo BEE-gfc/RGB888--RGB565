@@ -3,19 +3,18 @@
 主要用于开发TFT屏,在上面显示任意经过处理的图片
 
 此项目创建于2024年6月7日23:01
-版本号为1.1.0
+版本号1.1.2
 """
 
 from PIL import Image
 
-im = 'C:/Users/86176/Desktop/xt.jpg'
-pic = 'xt.jpg'
+pic_path = 'C:/Users/86176/Desktop/xt.jpg'
 file_path = "C:/Users/86176/Desktop/image.h"
 
-def read_image(im):
-    img = Image.open('C:/Users/86176/Desktop/xt.jpg')
+def read_image(pic_path):
+    img = Image.open(pic_path)
     old_w, old_h = img.size
-    dim = (160, 128)   #target size
+    dim = (160, 128)   #目标尺寸
     img.thumbnail(dim, Image.ANTIALIAS)
 
     text =''
@@ -44,4 +43,4 @@ def read_image(im):
     with open(file_path, "w") as f:
         f.write(text)
 
-read_image(pic)
+read_image(pic_path)

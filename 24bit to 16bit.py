@@ -4,6 +4,7 @@
 
 此项目创建于2024年6月4日23:01
 是最初版本,未进行任何优化,仅供参考,能正常使用
+作者: Wei-RC
 """
 
 from PIL import Image
@@ -14,7 +15,7 @@ file_path = "C:/Users/86176/Desktop/image.h"
 def read_image(pic):
     img = Image.open(pic)
     old_w, old_h = img.size
-    dim = (160, 128)   #target size
+    dim = (160, 128)   #目标尺寸
     img.thumbnail(dim, Image.ANTIALIAS)
 
     text =''

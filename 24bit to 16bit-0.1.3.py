@@ -23,7 +23,7 @@ def batch_image(pic_folder, output_path):
     with open(output_path, "w") as f:
         for idx, pic_files in enumerate(pic_files):
             img = Image.open(pic_files)
-            img.thumbnail((160, 128), Image.ANTIALIAS)   #缩放图片大小为160x128
+            img.thumbnail((160, 128), Image.ANTIALIAS)
 
             text =''
             new_w, new_h = img.size

@@ -18,7 +18,7 @@ pic_folder = 'C:/Users/86176/Desktop/l'   #图片文件夹路径
 output_path  = "C:/Users/86176/Desktop/image.h"
 
 def batch_image(pic_folder, output_path):
-    pic_files = glob.glob(os.path.join(pic_folder, '*.png'))   #获取图片文件夹路径下所有png图片
+    pic_files = glob.glob(os.path.join(pic_folder, '*.png'))   #获取图片文件夹路径下所有png图片,根据需要修改
     
     with open(output_path, "w") as f:
         for idx, pic_files in enumerate(pic_files):

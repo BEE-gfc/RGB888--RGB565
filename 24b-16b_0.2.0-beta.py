@@ -66,7 +66,7 @@ def select_folder_connvert():
     batch_image(folder_path, output_path)
 
 root = tk.Tk()
-root.title("24bit -> 16bit")
+root.title("24bit -> 16bit 0.2.0-beta")
 root.geometry("360x200")
 
 label = tk.Label(root, text="输入文件夹路径：")

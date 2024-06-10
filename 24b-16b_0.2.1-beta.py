@@ -3,6 +3,7 @@
 增加了个小功能,可以自定义想要缩放的尺寸,并且添加了进度条
 
 作者: Wei-RC
+时间: 2024/06/11 -02-05
 '''
 
 import tkinter as tk
@@ -59,6 +60,7 @@ def batch_image(pic_folder, output_path, new_width, new_height):
             root.update_idletasks()   #更新界面
             
     messagebox.showinfo("完成", "图片转换成功！")
+    progress_bar.destroy()   #销毁进度条
 
 def select_folder():
     folder_path = filedialog.askdirectory()

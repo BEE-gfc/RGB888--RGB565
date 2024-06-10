@@ -1,12 +1,12 @@
 '''
 图形交互界面建立完了,存在一些问题,目前这个版本功能基本完善,已经能稳定运行,就先不改了
-增加了个小功能,可以自定义想要缩放的尺寸
+增加了个小功能,可以自定义想要缩放的尺寸,并且添加了进度条
 
 作者: Wei-RC
 '''
 
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import filedialog, messagebox, ttk
 
 import os
 from PIL import Image
@@ -31,7 +31,11 @@ def batch_image(pic_folder, output_path, new_width, new_height):
         messagebox.showerror("", "目标路径下没有支持处理的文件")
         return
 
+    progress_bar = ttk.Progressbar(root, mode="determinate", length=150)    #创建进度条,由于得确认开始执行转换功能才建立进度条,因此放在判断文件是否存在的后面
+    progress_bar.place(x=210, y=0)
+
     with open(output_path, "w") as f:
+        progress_step = 100 / len(pic_files)    #计算每个文件处理的进度因此需要放在循环内
         for idx, picf in enumerate(pic_files):
             img = Image.open(picf)
             img.thumbnail((new_width, new_height), Image.ANTIALIAS)
@@ -50,6 +54,9 @@ def batch_image(pic_folder, output_path, new_width, new_height):
 
             text += "};\n\n"
             f.write(text)
+
+            progress_bar['value'] = (idx + 1) * progress_step   #更新进度条
+            root.update_idletasks()   #更新界面
             
     messagebox.showinfo("完成", "图片转换成功！")
 

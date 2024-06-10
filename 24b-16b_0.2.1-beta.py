@@ -11,12 +11,12 @@ from tkinter import filedialog, messagebox
 import os
 from PIL import Image
 
-def batch_image(pic_folder, output_path, new_w, new_h):
+def batch_image(pic_folder, output_path, new_width, new_height):
     if not pic_folder or not os.path.exists(pic_folder):
         messagebox.showwarning("", "请选择有效文件夹！")
         return
     
-    supported_formats = ['.jpg', '.jpeg', '.png', '.bmp', '.ico']
+    supported_formats = {'.jpg', '.jpeg', '.png', '.bmp', '.ico'}
     all_files = os.listdir(pic_folder)
     def judg_format(file,supported_formats):
         for fmt in supported_formats:
@@ -34,7 +34,7 @@ def batch_image(pic_folder, output_path, new_w, new_h):
     with open(output_path, "w") as f:
         for idx, picf in enumerate(pic_files):
             img = Image.open(picf)
-            img.thumbnail((new_w, new_h), Image.ANTIALIAS)
+            img.thumbnail((new_width, new_height), Image.ANTIALIAS)
 
             text =''
             new_w, new_h = img.size
@@ -63,10 +63,21 @@ def select_folder_connvert():
     folder_path = entry.get()
     output_path = os.path.join(folder_path, "images.h")
 
-    new_w = int(entry_width.get())  # 获取宽度输入框中的值
-    new_h = int(entry_height.get())  # 获取高度输入框中的值
+    try:
+        new_width = int(entry_width.get())  # 获取宽度输入框中的值
+        new_height = int(entry_height.get())  # 获取高度输入框中的值
+    except ValueError:
+        messagebox.showerror("", "请输入有效宽高！")
+        return
 
-    batch_image(folder_path, output_path, new_w, new_h)
+    if new_width <= 0 or new_height <= 0:
+        messagebox.showerror("", "宽度和高度必须大于0")
+        return
+
+    if not folder_path:
+        messagebox.showerror("", "请选择图片路径！")
+        return
+    batch_image(folder_path, output_path, new_width, new_height)
 
 
 root = tk.Tk()

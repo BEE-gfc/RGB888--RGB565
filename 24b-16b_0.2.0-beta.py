@@ -13,7 +13,7 @@ from PIL import Image
 
 def batch_image(pic_folder, output_path):
     if not pic_folder or not os.path.exists(pic_folder):
-        messagebox.showerror("", "请选择有效文件夹！")
+        messagebox.showwarning("", "请选择有效文件夹！")
         return
     
     supported_formats = ['.jpg', '.jpeg', '.png', '.bmp', '.ico']

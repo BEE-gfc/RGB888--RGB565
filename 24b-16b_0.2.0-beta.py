@@ -13,7 +13,7 @@ from PIL import Image
 
 def batch_image(pic_folder, output_path):
     if not pic_folder or not os.path.exists(pic_folder):
-        messagebox.showerror("请选择有效的文件夹！")
+        messagebox.showerror("请选择有效文件夹！")
         return
     
     supported_formats = ['.jpg', '.jpeg', '.png', '.bmp', '.ico']
@@ -24,7 +24,6 @@ def batch_image(pic_folder, output_path):
                 return True
         return False
     
-    #pic_files = [file for file in os.listdir(pic_folder) if file.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.ico'))]
     #pic_files = glob.glob(os.path.join(pic_folder, '*.jpg'))   #不知道为什么这样就没问题了
     pic_files = [os.path.join(pic_folder, file) for file in all_files if judg_format(file,supported_formats)]
 

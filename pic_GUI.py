@@ -95,8 +95,8 @@ class PicGUI:
 
                 text =''
                 new_w, new_h = img.size
-                text += f"#IMAGE_WIDTH  {new_w}\n"
-                text += f"#IMAGE_HEIGHT {new_h}\n"
+                text += f"//WIDTH  {new_w}\n"
+                text += f"//HEIGHT {new_h}\n"
                 text += f"uint16_t static const PROGMEM l{idx+1}[] = {{\n"
 
                 for y in range(new_h):

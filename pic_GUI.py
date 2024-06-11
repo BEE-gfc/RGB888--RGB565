@@ -11,7 +11,7 @@ class PicGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("24bit -> 16bit 0.2.0-beta")
-        self.root.geometry("360x200")
+        self.root.geometry("400x400")
 
         self.label = tk.Label(self.root, text="图片路径：")
         self.label.place(x=0, y=170)

@@ -59,10 +59,6 @@ class PicGUI:
         if new_width <= 0 or new_height <= 0:
             messagebox.showerror("", "宽度和高度必须大于0")
             return
-
-        if not folder_path:
-            messagebox.showerror("", "请选择图片路径！")
-            return
         self.batch_image(folder_path, output_path, new_width, new_height)
 
     def batch_image(self, pic_folder, output_path, new_width, new_height):

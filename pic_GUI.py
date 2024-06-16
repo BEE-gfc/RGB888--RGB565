@@ -10,23 +10,22 @@ from PIL import Image
 class PicGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("24bit -> 16bit 0.2.0-beta")
-        self.root.geometry("400x400")
+
+        self.label = tk.Label(self.root, text="24bit图像->16bit数组")
+        self.label.pack()
 
         self.label = tk.Label(self.root, text="图片路径：")
         self.label.place(x=0, y=170)
 
-        self.entry = tk.Entry(self.root, width=25)
+        self.entry = tk.Entry(self.root, width=28)
         self.entry.place(x=60, y=170)
 
-        # 新增部分，用于输入缩放后的宽度
         self.label_width = tk.Label(self.root, text="宽：")
         self.label_width.place(x=0, y=115)
 
         self.entry_width = tk.Entry(self.root, width=5)
         self.entry_width.place(x=30, y=115)
 
-        # 新增部分，用于输入缩放后的高度
         self.label_height = tk.Label(self.root, text="高：")
         self.label_height.place(x=0, y=140)
 
@@ -80,8 +79,8 @@ class PicGUI:
             messagebox.showerror("", "目标路径下没有支持处理的文件")
             return
 
-        progress_bar = ttk.Progressbar(self.root, mode="determinate", length=150)    #创建进度条,由于得确认开始执行转换功能才建立进度条,因此放在判断文件是否存在的后面
-        progress_bar.place(x=210, y=0)
+        progress_bar = ttk.Progressbar(self.root, mode="determinate", length=200)    #创建进度条,由于得确认开始执行转换功能才建立进度条,因此放在判断文件是否存在的后面
+        progress_bar.place(x=200, y=250)
 
         with open(output_path, "w") as f:
             progress_step = 100 / len(pic_files)    #计算每个文件处理的进度因此需要放在循环内
@@ -109,12 +108,3 @@ class PicGUI:
             
         messagebox.showinfo("完成", "图片转换成功！")
         progress_bar.destroy()   #销毁进度条
-    pass
-
-def run_gui():
-    root = tk.Tk()
-    #app = PicGUI(root)
-    root.mainloop()
-
-if __name__ == "__main__":
-    run_gui()

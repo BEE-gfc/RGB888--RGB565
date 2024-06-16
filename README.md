@@ -21,7 +21,7 @@ PIL（Python Imaging Library）
 版本说明
 0.2.0-beta版本更新了GUI的布局,在这个版本之前暂时不加入更多功能,以转换图片为主
 
-0.3.0版本重新设计了GUI的布局，使其更加美观,新增了逐帧提取GIF的功能,优化了一些可能存在的问题
+0.3.0版本重新设计了GUI的布局，使其更加美观,新增了逐帧提取GIF的功能,优化了一些可能存在的问题,并将名字改为“IP_L" 全名"Integrated Processing Laboratory"
 
 作者
 Wei-RC

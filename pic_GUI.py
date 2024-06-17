@@ -65,7 +65,7 @@ class PicGUI:
             messagebox.showwarning("", "请选择有效文件夹！")
             return
     
-        supported_formats = {'.jpg', '.jpeg', '.png', '.bmp', '.ico'}
+        supported_formats = {'.jpg', '.jpeg', '.png'}
         all_files = os.listdir(pic_folder)
         def judg_format(file,supported_formats):
             for fmt in supported_formats:
